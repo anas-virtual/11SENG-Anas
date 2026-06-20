@@ -1,20 +1,19 @@
 import tkinter as tk
-
-def greet_user():
-    username =name_entry.get()
-    
-    welcome_label.config(text=f"Namaste, {username}!")
-
-
+import ctypes # For DPI awarness on Windows
+try: 
+    ctypes.windll.shcore.SetProcessDpiAwarness(1) # This basically just makes the app look better and removes the blurriness and low resolution
+except:
+    pass
 root = tk.Tk()
 root.title("Learn Hindi Made Easy!")
-root.geometry("500x450") # Set the window size to 500x450 pixels
+root.geometry("400x600") # Set the window size to 400x500 pixels
+root.resizable(False, False) # Disable resizing of the window
 
-name_entry = tk.Entry(root)
-name_entry.pack(pady=10)
-submit_btn = tk.Button(root, text="Submit", command=greet_user)
-submit_btn.pack(pady=5)
+bg_image = tk.PhotoImage(file="Background SENG (1).png")
+bg_label = tk.Label(root, image=bg_image, bd=0)
+bg_label.place(x=0, y=0, relwidth=1, relheight=1)
 
-welcome_label = tk.Label(root, text="")
-welcome_label.pack(pady=10)
+#Buttons
+start_button = tk.Button(root, text="Welcome!", font=("Arial", 14, "bold"), bg="#FF9933", fg="white", padx=20, pady=5, cursor="hand2")
+start_button.place(x=200, y=265, anchor="center")
 root.mainloop()
