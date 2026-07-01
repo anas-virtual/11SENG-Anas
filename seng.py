@@ -166,7 +166,7 @@ def load_q():
     quiz["answered"] = False
     for i, b in enumerate(opt_btns):
         b.config(text=q["options"][1], state="normal")
-    next_btn.config(state="disabled"), text=("Next ->") if quiz["index"] < NUM_Q - 1 else "See Results", command=advance
+    next_btn.config(state="disabled"), text=("Next ->") if quiz["index"] < NUM_Q - 1 else "See Results", command=advance)
 
 def check(i):
     if quiz["answered"]: return
